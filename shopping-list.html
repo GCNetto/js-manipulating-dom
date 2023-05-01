@@ -9,8 +9,8 @@
         margin-bottom: 10px;
       }
 
-      li button {
-        font-size: 8px;
+      li, button {
+        font-size: 12px;
         margin-left: 20px;
         color: #666;
       }
@@ -31,7 +31,42 @@
     </ul>
 
     <script>
+        // step 2
+        const uList = document.querySelector('ul');
+        const input = document.querySelector('input');
+        const button = document.querySelector('button');
+        
+        // step 3
+        button.addEventListener('click', () => {
+          // step 4
+          const item = input.value;
+          // step 5
+          input.value = '';
 
+          // step 6
+          const listItem = document.createElement('li');
+          const span = document.createElement('span');
+          const button2 = document.createElement('button');
+
+          // step 7
+          listItem.appendChild(span);
+          listItem.appendChild(button2);
+          
+          // step 8
+          span.textContent = item;
+          button2.textContent = 'Delete';
+
+          // step 9
+          uList.appendChild(listItem);
+
+          // step 10
+          button2.addEventListener('click', () => {
+            uList.removeChild(listItem);
+          });
+
+          // step 11
+          input.focus();
+        });
     </script>
   </body>
 </html>
